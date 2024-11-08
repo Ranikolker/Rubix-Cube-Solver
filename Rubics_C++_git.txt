@@ -1,0 +1,1191 @@
+// rubix_cube_robot.cpp : This file contains the 'main' function. Program execution begins && ends there.
+//
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    /*
+    R' = r
+    L' = l
+    F' = f
+    B' = b
+    D' = d
+    U' = u
+
+    R2 = A
+    L2 = C
+    F2 = E
+    B2 = G
+    U2 = H
+    D2 = J
+    */
+
+    //statments
+    string solution = {};
+    string solution_ROBOT = "";
+
+    string switch01;
+    string switch02;
+    string switch03;
+    string switch04;
+    string switch05;
+
+    string AE;
+    string BE;
+    string CE;
+    string DE;
+    string EE;
+    string FE;
+    string GE;
+    string HE;
+    string IE;
+    string JE;
+    string KE;
+    string LE;
+    string ME;
+    string NE;
+    string OE;
+    string PE;
+    string QE ;
+    string RE;
+    string SE;
+    string TE;
+    string UE;
+    string VE;
+    string WE;
+    string XE;
+
+    string AC;
+    string BC;
+    string CC;
+    string DC;
+    string EC;
+    string FC;
+    string GC;
+    string HC;
+    string IC;
+    string JC;
+    string KC;
+    string LC;
+    string MC;
+    string NC;
+    string OC;
+    string PC;
+    string QC;
+    string RC;
+    string SC;
+    string TC;
+    string UC;
+    string VC;
+    string WC;
+    string XC;
+
+    string smash;
+
+
+    cout
+            << "Write every edge / corrner as his color (W, Y, B, R, G, O) when you are holdong the white side up && the green front"
+            << endl;
+
+    //defind edges
+    cout << "AE: ";
+    cin >> AE;
+    cout << "BE: ";
+    cin >> BE;
+    cout << "CE: ";
+    cin >> CE;
+    cout << "DE: ";
+    cin >> DE;
+    cout << "EE: ";
+    cin >> EE;
+    cout << "FE: ";
+    cin >> FE;
+    cout << "GE: ";
+    cin >> GE;
+    cout << "HE: ";
+    cin >> HE;
+    cout << "IE: ";
+    cin >> IE;
+    cout << "JE: ";
+    cin >> JE;
+    cout << "KE: ";
+    cin >> KE;
+    cout << "LE: ";
+    cin >> LE;
+    cout << "ME: ";
+    cin >> ME;
+    cout << "NE: ";
+    cin >> NE;
+    cout << "OE: ";
+    cin >> OE;
+    cout << "PE: ";
+    cin >> PE;
+    cout << "QE: ";
+    cin >> QE;
+    cout << "RE: ";
+    cin >> RE;
+    cout << "SE: ";
+    cin >> SE;
+    cout << "TE: ";
+    cin >> TE;
+    cout << "UE: ";
+    cin >> UE;
+    cout << "VE: ";
+    cin >> VE;
+    cout << "WE: ";
+    cin >> WE;
+    cout << "XE: ";
+    cin >> XE;
+
+    //defind corrners
+    cout << "AC: ";
+    cin >> AC;
+    cout << "BC: ";
+    cin >> BC;
+    cout << "CC: ";
+    cin >> CC;
+    cout << "DC: ";
+    cin >> DC;
+    cout << "EC: ";
+    cin >> EC;
+    cout << "FC: ";
+    cin >> FC;
+    cout << "GC: ";
+    cin >> GC;
+    cout << "HC: ";
+    cin >> HC;
+    cout << "IC: ";
+    cin >> IC;
+    cout << "JC: ";
+    cin >> JC;
+    cout << "KC: ";
+    cin >> KC;
+    cout << "LC: ";
+    cin >> LC;
+    cout << "MC: ";
+    cin >> MC;
+    cout << "NC: ";
+    cin >> NC;
+    cout << "OC: ";
+    cin >> OC;
+    cout << "PC: ";
+    cin >> PC;
+    cout << "QC: ";
+    cin >> QC;
+    cout << "RC: ";
+    cin >> RC;
+    cout << "SC: ";
+    cin >> SC;
+    cout << "TC: ";
+    cin >> TC;
+    cout << "UC: ";
+    cin >> UC;
+    cout << "VC: ";
+    cin >> VC;
+    cout << "WC: ";
+    cin >> WC;
+    cout << "XC: ";
+    cin >> XC;
+
+    //defind all edges
+    string AQE;
+    string BME_Buffer;
+    string CIE;
+    string DEE;
+    string LFE;
+    string GXE;
+    string HRE;
+    string JPE;
+    string KUE;
+    string NTE;
+    string OVE;
+    string SWE;
+
+    string QAE;
+    string MBE_Buffer;
+    string ICE;
+    string EDE;
+    string FLE;
+    string XGE;
+    string RHE;
+    string PJE;
+    string UKE;
+    string TNE;
+    string VOE;
+    string WSE;
+
+    //the cube edges
+    //AQE
+    AQE = AE + QE;
+
+    //QAE
+    QAE = QE + AE;
+
+    //BME_Buffer
+    BME_Buffer = BE + ME;
+
+
+    //MBE_Buffer
+    MBE_Buffer = ME + BE;
+
+
+    //CIE
+    CIE = CE + IE;
+
+
+    //ICE
+    ICE = IE + CE;
+
+
+    //DEE
+    DEE = DE + EE;
+
+
+    //EDE
+    EDE = EE + DE;
+
+    //LFE
+    LFE = LE + FE;
+
+
+    //FLE
+    FLE = FE + LE;
+
+
+    //GXE
+    GXE = GE + XE;
+
+
+    //XGE
+    XGE = XE + GE;
+
+
+    //HRE
+    HRE = HE + RE;
+
+
+    //RHE
+    RHE = RE + HE;
+
+
+    //JPE
+    JPE = JE + PE;
+
+
+    //PJE
+    PJE = PE + JE;
+
+
+    //KUE
+    KUE = KE + UE;
+
+
+    //UKE
+    UKE = UE + KE;
+
+
+    //NTE
+    NTE = NE + TE;
+
+
+    //TNE
+    TNE = TE + NE;
+
+
+    //OVE
+    OVE = OE + VE;
+
+
+    //VOE
+    VOE = VE + OE;
+
+
+    // SWE
+    SWE = SE + WE;
+
+
+    //WSE
+    WSE = WE + SE;
+
+
+    //solving edges
+
+    while (true) {
+        //statments
+        switch01 = BME_Buffer;
+        switch02 = MBE_Buffer;
+
+        //if solved
+        if (AQE == "WB" && BME_Buffer == "WR" && CIE == "WG" && DEE == "WO" && FLE == "OG" && GXE == "OY" &&
+            HRE == "OB" && JPE == "GR" && KUE == "GY" && NTE == "RB" && SWE == "BY" && OVE == "RY" && QAE == "BW" &&
+            MBE_Buffer == "RW" && ICE == "GW" && EDE == "OW" && LFE == "GO" && XGE == "YO" && RHE == "BO" &&
+            PJE == "RG" && UKE == "YG" && TNE == "BR" && WSE == "YB" && VOE == "YR") {
+            cout << "edges has been solved" << endl;
+            break;
+        }
+
+            //if not solved
+        else {
+            if (BME_Buffer == "WG") {
+                solution.append("AUCRDrdrBAdrdRDrbCuA");
+                BME_Buffer = CIE;
+                MBE_Buffer = ICE;
+                CIE = switch01;
+                ICE = switch02;
+            } else if (BME_Buffer == "WB") {
+                solution.append("AuCRDrdrBAdrdRDrbCUA");
+                BME_Buffer = AQE;
+                MBE_Buffer = QAE;
+                AQE = switch01;
+                QAE = switch02;
+            } else if (BME_Buffer == "WO") {
+                solution.append("RUrurFAuruRUrf");
+                BME_Buffer = DEE;
+                MBE_Buffer = EDE;
+                DEE = switch01;
+                EDE = switch02;
+            } else if (BME_Buffer == "YG") {
+                solution.append("dCRUrurFAuruRUrfCD");
+                BME_Buffer = UKE;
+                MBE_Buffer = KUE;
+                UKE = switch01;
+                KUE = switch02;
+            } else if (BME_Buffer == "YR") {
+                solution.append("JCRUrurFAuruRUrfCJ");
+                BME_Buffer = VOE;
+                MBE_Buffer = OVE;
+                VOE = switch01;
+                OVE = switch02;
+            } else if (BME_Buffer == "YB") {
+                solution.append("DCRUrurFAuruRUrfCd");
+                BME_Buffer = WSE;
+                MBE_Buffer = SWE;
+                WSE = switch01;
+                SWE = switch02;
+            } else if (BME_Buffer == "YO") {
+                solution.append("CRUrurFAuruRUrfC");
+                BME_Buffer = XGE;
+                MBE_Buffer = GXE;
+                XGE = switch01;
+                GXE = switch02;
+            } else if (BME_Buffer == "RG") {
+                solution.append("ufBUbubRGubuBUbrFU");
+                BME_Buffer = PJE;
+                MBE_Buffer = JPE;
+                PJE = switch01;
+                JPE = switch02;
+            } else if (BME_Buffer == "RB") {
+                solution.append("UBFUfufLEufuFUflbu");
+                BME_Buffer = NTE;
+                MBE_Buffer = TNE;
+                NTE = switch01;
+                TNE = switch02;
+            } else if (BME_Buffer == "BO") {
+                solution.append("LRUrurFAuruRUrfl");
+                BME_Buffer = RHE;
+                MBE_Buffer = HRE;
+                RHE = switch01;
+                HRE = switch02;
+            } else if (BME_Buffer == "OG") {
+                solution.append("uFBUbubRGubuBUbrfU");
+                BME_Buffer = FLE;
+                MBE_Buffer = LFE;
+                FLE = switch01;
+                LFE = switch02;
+            }
+
+                //--
+            else if (BME_Buffer == "GW") {
+                solution.append("RfCRBrbrUAbrbRBruCFr");
+                BME_Buffer = ICE;
+                MBE_Buffer = CIE;
+                ICE = switch01;
+                CIE = switch02;
+            } else if (BME_Buffer == "BW") {
+                solution.append("rBCRFrfrDAfrfRFrdCbR");
+                BME_Buffer = QAE;
+                MBE_Buffer = AQE;
+                QAE = switch01;
+                AQE = switch02;
+            } else if (BME_Buffer == "OW") {
+                solution.append("LuFBUbubRGubuBUbrfUl");
+                BME_Buffer = EDE;
+                MBE_Buffer = DEE;
+                EDE = switch01;
+                DEE = switch02;
+            } else if (BME_Buffer == "GY") {
+                solution.append("FlfRUrurFAuruRUrLf");
+                BME_Buffer = KUE;
+                MBE_Buffer = UKE;
+                KUE = switch01;
+                UKE = switch02;
+            } else if (BME_Buffer == "RY") {
+                solution.append("JluFBUbubRGubuBUbrfULJ");
+                BME_Buffer = OVE;
+                MBE_Buffer = VOE;
+                OVE = switch01;
+                VOE = switch02;
+            } else if (BME_Buffer == "BY") {
+                solution.append("rbCRFrfrDAfrfRFrdCBR");
+                BME_Buffer = SWE;
+                MBE_Buffer = WSE;
+                SWE = switch01;
+                WSE = switch02;
+            } else if (BME_Buffer == "OY") {
+                solution.append("luFBUbubRGubuBUbrfUL");
+                BME_Buffer = GXE;
+                MBE_Buffer = XGE;
+                GXE = switch01;
+                XGE = switch02;
+            } else if (BME_Buffer == "GR") {
+                solution.append("HRLUlulBCuluLUlbrH");
+                BME_Buffer = JPE;
+                MBE_Buffer = PJE;
+                JPE = switch01;
+                PJE = switch02;
+            } else if (BME_Buffer == "BR") {
+                solution.append("HrluLULfCULUluLFRH");
+                BME_Buffer = TNE;
+                MBE_Buffer = NTE;
+                TNE = switch01;
+                NTE = switch02;
+            } else if (BME_Buffer == "OB") {
+                solution.append("UbFUfufLEufuFUflBu");
+                BME_Buffer = HRE;
+                MBE_Buffer = RHE;
+                HRE = switch01;
+                RHE = switch02;
+            } else if (BME_Buffer == "GO") {
+                solution.append("lRUrurFAuruRUrfL");
+                BME_Buffer = LFE;
+                MBE_Buffer = FLE;
+                LFE = switch01;
+                FLE = switch02;
+            }
+
+                //cycle
+            else if (BME_Buffer == "WR" || BME_Buffer == "RW") {
+                if (AQE != "WB") {
+                    solution.append("AuCRDrdrBAdrdRDrbCUA");
+                    BME_Buffer = AQE;
+                    MBE_Buffer = QAE;
+                    AQE = switch01;
+                    QAE = switch02;
+                } else if (QAE != "BW") {
+                    solution.append("rBCRFrfrDAfrfRFrdCbR");
+                    BME_Buffer = QAE;
+                    MBE_Buffer = AQE;
+                    QAE = switch01;
+                    AQE = switch02;
+                } else if (CIE != "WG") {
+                    solution.append("AUCRDrdrBAdrdRDrbCuA");
+                    BME_Buffer = CIE;
+                    MBE_Buffer = ICE;
+                    CIE = switch01;
+                    ICE = switch02;
+                } else if (ICE != "GW") {
+                    solution.append("RfCRBrbrUAbrbRBruCFr");
+                    BME_Buffer = ICE;
+                    MBE_Buffer = CIE;
+                    ICE = switch01;
+                    CIE = switch02;
+                } else if (DEE != "WO") {
+                    solution.append("RUrurFAuruRUrf");
+                    BME_Buffer = DEE;
+                    MBE_Buffer = EDE;
+                    DEE = switch01;
+                    EDE = switch02;
+                } else if (EDE != "OW") {
+                    solution.append("LuFBUbubRGubuBUbrfUl");
+                    BME_Buffer = EDE;
+                    MBE_Buffer = DEE;
+                    EDE = switch01;
+                    DEE = switch02;
+                } else if (LFE != "GO") {
+                    solution.append("lRUrurFAuruRUrfL");
+                    BME_Buffer = LFE;
+                    MBE_Buffer = FLE;
+                    LFE = switch01;
+                    FLE = switch02;
+                } else if (FLE != "OG") {
+                    solution.append("uFBUbubRGubuBUbrfU");
+                    BME_Buffer = FLE;
+                    MBE_Buffer = LFE;
+                    FLE = switch01;
+                    LFE = switch02;
+                } else if (GXE != "OY") {
+                    solution.append("luFBUbubRGubuBUbrfUL");
+                    BME_Buffer = GXE;
+                    MBE_Buffer = XGE;
+                    GXE = switch01;
+                    XGE = switch02;
+                } else if (XGE != "YO") {
+                    solution.append("CRUrurFAuruRUrfC");
+                    BME_Buffer = XGE;
+                    MBE_Buffer = GXE;
+                    XGE = switch01;
+                    GXE = switch02;
+                } else if (HRE != "OB") {
+                    solution.append("UbFUfufLEufuFUflBu");
+                    BME_Buffer = HRE;
+                    MBE_Buffer = RHE;
+                    HRE = switch01;
+                    RHE = switch02;
+                } else if (RHE != "BO") {
+                    solution.append("LRUrurFAuruRUrfl");
+                    BME_Buffer = RHE;
+                    MBE_Buffer = HRE;
+                    RHE = switch01;
+                    HRE = switch02;
+                } else if (JPE != "GR") {
+                    solution.append("HRLUlulBCuluLUlbrH");
+                    BME_Buffer = JPE;
+                    MBE_Buffer = PJE;
+                    JPE = switch01;
+                    PJE = switch02;
+                } else if (PJE != "RG") {
+                    solution.append("ufBUbubRGubuBUbrFU");
+                    BME_Buffer = PJE;
+                    MBE_Buffer = JPE;
+                    PJE = switch01;
+                    JPE = switch02;
+                } else if (KUE != "GY") {
+                    solution.append("FlfRUrurFAuruRUrLf");
+                    BME_Buffer = KUE;
+                    MBE_Buffer = UKE;
+                    KUE = switch01;
+                    UKE = switch02;
+                } else if (UKE != "YG") {
+                    solution.append("dCRUrurFAuruRUrfCD");
+                    BME_Buffer = UKE;
+                    MBE_Buffer = KUE;
+                    UKE = switch01;
+                    KUE = switch02;
+                } else if (NTE != "RB") {
+                    solution.append("UBFUfufLEufuFUflbu");
+                    BME_Buffer = NTE;
+                    MBE_Buffer = TNE;
+                    NTE = switch01;
+                    TNE = switch02;
+                } else if (TNE != "BR") {
+                    solution.append("HrluLULfCULUluLFRH");
+                    BME_Buffer = TNE;
+                    MBE_Buffer = NTE;
+                    TNE = switch01;
+                    NTE = switch02;
+                } else if (OVE != "RY") {
+                    solution.append("JluFBUbubRGubuBUbrfULJ");
+                    BME_Buffer = OVE;
+                    MBE_Buffer = VOE;
+                    OVE = switch01;
+                    VOE = switch02;
+                } else if (VOE != "YR") {
+                    solution.append("JCRUrurFAuruRUrfCJ");
+                    BME_Buffer = VOE;
+                    MBE_Buffer = OVE;
+                    VOE = switch01;
+                    OVE = switch02;
+                } else if (SWE != "BY") {
+                    solution.append("rbCRFrfrDAfrfRFrdCBR");
+                    BME_Buffer = SWE;
+                    MBE_Buffer = WSE;
+                    SWE = switch01;
+                    WSE = switch02;
+                } else if (WSE != "YB") {
+                    solution.append("DCRUrurFAuruRUrfCd");
+                    BME_Buffer = WSE;
+                    MBE_Buffer = SWE;
+                    WSE = switch01;
+                    SWE = switch02;
+                }
+
+            }
+        }
+
+    }
+
+    //solving corners
+    while (true) {
+        //statments
+        switch03 = EC;
+        switch04 = AC;
+        switch05 = RC;
+
+        //if the cube is solved
+        if (AC == "W" && BC == "W" && CC == "W" && DC == "W" && EC == "O" && FC == "O" && GC == "O" && HC == "O" &&
+            IC == "G" && JC == "G" && KC == "G" && LC == "G" && MC == "R" && NC == "R" && OC == "R" && PC == "R" &&
+            QC == "B" && RC == "B" && SC == "B" && TC == "B" && UC == "Y" && VC == "Y" && WC == "Y" && XC == "Y") {
+            cout << "corrners has been solved" << endl;
+            break;
+        }
+
+            //if cube is not solved
+        else {
+            //cycle
+            if (EC + AC + RC == "OWB" || EC + AC + RC == "BOW" || EC + AC + RC == "WBO") {
+                if (BC + NC + QC != "WRB") {
+                    solution.append("ruruRUrfRUrurFr");
+                    EC = BC;
+                    AC = NC;
+                    RC = QC;
+                    BC = switch03;
+                    NC = switch04;
+                    QC = switch05;
+                } else if (HC + SC + XC != "OBY") {
+                    solution.append("dAuruRUrfRUrurFD");
+                    EC = HC;
+                    AC = SC;
+                    RC = XC;
+                    HC = switch03;
+                    SC = switch04;
+                    XC = switch05;
+                } else if (MC + CC + JC != "RWG") {
+                    solution.append("FRuruRUrfRUrurFRf");
+                    EC = MC;
+                    AC = CC;
+                    RC = JC;
+                    MC = switch03;
+                    JC = switch05;
+                    CC = switch04;
+                } else if (IC + DC + FC != "GWO") {
+                    solution.append("FuruRUrfRUrurFAf");
+                    EC = IC;
+                    AC = DC;
+                    RC = FC;
+                    IC = switch03;
+                    FC = switch05;
+                    DC = switch04;
+                } else if (LC + GC + UC != "GOY") {
+                    solution.append("EuruRUrfRUrurFAE");
+                    EC = LC;
+                    AC = GC;
+                    RC = UC;
+                    LC = switch03;
+                    UC = switch05;
+                    GC = switch04;
+                } else if (PC + KC + VC != "RGY") {
+                    solution.append("FDRuruRUrfRUrurFRdf");
+                    EC = PC;
+                    AC = KC;
+                    RC = VC;
+                    PC = switch03;
+                    VC = switch05;
+                    KC = switch04;
+                } else if (TC + OC + WC != "BRY") {
+                    solution.append("AuruRUrfRUrurF");
+                    EC = TC;
+                    AC = OC;
+                    RC = WC;
+                    TC = switch03;
+                    WC = switch05;
+                    OC = switch04;
+                } else if (JC + MC + CC != "GRW") {
+                    solution.append("uruRUrfRUrurFA");
+                    EC = JC;
+                    AC = MC;
+                    RC = CC;
+                    JC = switch03;
+                    CC = switch05;
+                    MC = switch04;
+                } else if (FC + IC + DC != "OGW") {
+                    solution.append("fDRuruRUrfRUrurFRdF");
+                    EC = FC;
+                    AC = IC;
+                    RC = DC;
+                    FC = switch03;
+                    DC = switch05;
+                    IC = switch04;
+                } else if (UC + LC + GC != "YGO") {
+                    solution.append("DRuruRUrfRUrurFRd");
+                    EC = UC;
+                    AC = LC;
+                    RC = GC;
+                    UC = switch03;
+                    GC = switch05;
+                    LC = switch04;
+                } else if (VC + PC + KC != "YRG") {
+                    solution.append("RuruRUrfRUrurFR");
+                    EC = VC;
+                    AC = PC;
+                    RC = KC;
+                    VC = switch03;
+                    PC = switch04;
+                    KC = switch05;
+                } else if (WC + TC + OC != "YBR") {
+                    solution.append("dRuruRUrfRUrurFRD");
+                    EC = WC;
+                    AC = TC;
+                    RC = OC;
+                    WC = switch03;
+                    TC = switch04;
+                    OC = switch05;
+                } else if (GC + UC + LC != "OYG") {
+                    solution.append("fRuruRUrfRUrurFRF");
+                    EC = GC;
+                    AC = UC;
+                    RC = LC;
+                    GC = switch03;
+                    UC = switch04;
+                    LC = switch05;
+                } else if (NC + QC + BC != "RBW") {
+                    solution.append("rFRuruRUrfRUrurFRfR");
+                    EC = NC;
+                    AC = QC;
+                    RC = BC;
+                    NC = switch03;
+                    BC = switch05;
+                    QC = switch04;
+                } else if (QC + BC + NC != "BWR") {
+                    solution.append("RdRuruRUrfRUrurFRDr");
+                    EC = QC;
+                    AC = BC;
+                    RC = NC;
+                    QC = switch03;
+                    NC = switch05;
+                    BC = switch04;
+                } else if (CC + JC + MC != "WGR") {
+                    solution.append("EDRuruRUrfRUrurFRdE");
+                    EC = CC;
+                    AC = JC;
+                    RC = MC;
+                    CC = switch03;
+                    MC = switch05;
+                    JC = switch04;
+                } else if (DC + FC + IC != "WOG") {
+                    solution.append("ERuruRUrfRUrurFRE");
+                    EC = DC;
+                    AC = FC;
+                    RC = IC;
+                    DC = switch03;
+                    FC = switch04;
+                    IC = switch05;
+                } else if (KC + VC + PC != "GYR") {
+                    solution.append("furuRUrfRUrurFAF");
+                    EC = KC;
+                    AC = VC;
+                    RC = PC;
+                    KC = switch03;
+                    VC = switch04;
+                    PC = switch05;
+                } else if (OC + WC + TC != "RYB") {
+                    solution.append("AFRuruRUrfRUrurFRfA");
+                    EC = OC;
+                    AC = WC;
+                    RC = TC;
+                    OC = switch03;
+                    TC = switch05;
+                    WC = switch04;
+                } else if (XC + HC + SC != "YOB") {
+                    solution.append("JRuruRUrfRUrurFRJ");
+                    EC = XC;
+                    AC = HC;
+                    RC = SC;
+                    XC = switch03;
+                    SC = switch05;
+                    HC = switch04;
+                } else if (SC + XC + HC != "BYO") {
+                    solution.append("DfRuruRUrfRUrurFRFd");
+                    EC = SC;
+                    AC = XC;
+                    RC = HC;
+                    SC = switch03;
+                    HC = switch05;
+                    XC = switch04;
+                }
+
+            } else {
+                //white color (3) one in cycle
+                if (EC == "W" && AC == "R" && RC == "B") {
+                    solution.append("ruruRUrfRUrurFr");
+                    EC = BC;
+                    AC = NC;
+                    RC = QC;
+                    BC = switch03;
+                    NC = switch04;
+                    QC = switch05;
+                } else if (EC == "W" && AC == "G" && RC == "R") {
+                    solution.append("EDRuruRUrfRUrurFRdE");
+                    EC = CC;
+                    AC = JC;
+                    RC = MC;
+                    CC = switch03;
+                    MC = switch05;
+                    JC = switch04;
+                } else if (EC == "W" && AC == "O" && RC == "G") {
+                    solution.append("ERuruRUrfRUrurFRE");
+                    EC = DC;
+                    AC = FC;
+                    RC = IC;
+                    DC = switch03;
+                    FC = switch04;
+                    IC = switch05;
+                }
+
+                    //orange color (3) one in cycle
+                else if (EC == "O" && AC == "Y" && RC == "G") {
+                    solution.append("fRuruRUrfRUrurFRF");
+                    EC = GC;
+                    AC = UC;
+                    RC = LC;
+                    GC = switch03;
+                    UC = switch04;
+                    LC = switch05;
+                } else if (EC == "O" && AC == "B" && RC == "Y") {
+                    solution.append("dAuruRUrfRUrurFD");
+                    EC = HC;
+                    AC = SC;
+                    RC = XC;
+                    HC = switch03;
+                    SC = switch04;
+                    XC = switch05;
+                } else if (EC == "O" && AC == "G" && RC == "W") {
+                    solution.append("fDRuruRUrfRUrurFRdF");
+                    EC = FC;
+                    AC = IC;
+                    RC = DC;
+                    FC = switch03;
+                    DC = switch05;
+                    IC = switch04;
+                }
+
+                    //green color (4)
+                else if (EC == "G" && AC == "Y" && RC == "R") {
+                    solution.append("furuRUrfRUrurFAF");
+                    EC = KC;
+                    AC = VC;
+                    RC = PC;
+                    KC = switch03;
+                    VC = switch04;
+                    PC = switch05;
+                } else if (EC == "G" && AC == "W" && RC == "O") {
+                    solution.append("FuruRUrfRUrurFAf");
+                    EC = IC;
+                    AC = DC;
+                    RC = FC;
+                    IC = switch03;
+                    FC = switch05;
+                    DC = switch04;
+                } else if (EC == "G" && AC == "O" && RC == "Y") {
+                    solution.append("EuruRUrfRUrurFAE");
+                    EC = LC;
+                    AC = GC;
+                    RC = UC;
+                    LC = switch03;
+                    UC = switch05;
+                    GC = switch04;
+                } else if (EC == "G" && AC == "R" && RC == "W") {
+                    solution.append("uruRUrfRUrurFA");
+                    EC = JC;
+                    AC = MC;
+                    RC = CC;
+                    JC = switch03;
+                    CC = switch05;
+                    MC = switch04;
+                }
+
+                    //red color (4)
+                else if (EC == "R" && AC == "Y" && RC == "B") {
+                    solution.append("AFRuruRUrfRUrurFRfA");
+                    EC = OC;
+                    AC = WC;
+                    RC = TC;
+                    OC = switch03;
+                    TC = switch05;
+                    WC = switch04;
+                } else if (EC == "R" && AC == "W" && RC == "G") {
+                    solution.append("FRuruRUrfRUrurFRf");
+                    EC = MC;
+                    AC = CC;
+                    RC = JC;
+                    MC = switch03;
+                    JC = switch05;
+                    CC = switch04;
+                } else if (EC == "R" && AC == "G" && RC == "Y") {
+                    solution.append("FDRuruRUrfRUrurFRdf");
+                    EC = PC;
+                    AC = KC;
+                    RC = VC;
+                    PC = switch03;
+                    VC = switch05;
+                    KC = switch04;
+                } else if (EC == "R" && AC == "B" && RC == "W") {
+                    solution.append("rFRuruRUrfRUrurFRfR");
+                    EC = NC;
+                    AC = QC;
+                    RC = BC;
+                    NC = switch03;
+                    BC = switch05;
+                    QC = switch04;
+                }
+
+                    //yellow color (4)
+                else if (EC == "Y" && AC == "G" && RC == "O") {
+                    solution.append("DRuruRUrfRUrurFRd");
+                    EC = UC;
+                    AC = LC;
+                    RC = GC;
+                    UC = switch03;
+                    GC = switch05;
+                    LC = switch04;
+                } else if (EC == "Y" && AC == "O" && RC == "B") {
+                    solution.append("JRuruRUrfRUrurFRJ");
+                    EC = XC;
+                    AC = HC;
+                    RC = SC;
+                    XC = switch03;
+                    SC = switch05;
+                    HC = switch04;
+                } else if (EC == "Y" && AC == "R" && RC == "G") {
+                    solution.append("RuruRUrfRUrurFR");
+                    EC = VC;
+                    AC = PC;
+                    RC = KC;
+                    VC = switch03;
+                    PC = switch04;
+                    KC = switch05;
+                } else if (EC == "Y" && AC == "B" && RC == "R") {
+                    solution.append("dRuruRUrfRUrurFRD");
+                    EC = WC;
+                    AC = TC;
+                    RC = OC;
+                    WC = switch03;
+                    TC = switch04;
+                    OC = switch05;
+                }
+
+                    //blue color (3) one cycle
+                else if (EC == "B" && AC == "Y" && RC == "O") {
+                    solution.append("DfRuruRUrfRUrurFRFd");
+                    EC = SC;
+                    AC = XC;
+                    RC = HC;
+                    SC = switch03;
+                    HC = switch05;
+                    XC = switch04;
+                } else if (EC == "B" && AC == "R" && RC == "Y") {
+                    solution.append("AuruRUrfRUrurF");
+                    EC = TC;
+                    AC = OC;
+                    RC = WC;
+                    TC = switch03;
+                    WC = switch05;
+                    OC = switch04;
+                } else if (EC == "B" && AC == "W" && RC == "R") {
+                    solution.append("RdRuruRUrfRUrurFRDr");
+                    EC = QC;
+                    AC = BC;
+                    RC = NC;
+                    QC = switch03;
+                    NC = switch05;
+                    BC = switch04;
+                }
+            }
+        }
+
+    }
+
+    solution = solution + " ";
+
+    for (int i = 0; i <= solution.length(); i++)
+    {
+        if (solution[i] != ' ')
+        {
+            //R - R'
+            if (solution[i] == 'R' && solution[i + 1] == 'r' || solution[i] == 'r' && solution[i + 1] == 'R' || solution[i] == 'R' && solution[i - 1] == 'r' || solution[i] == 'r' && solution[i - 1] == 'R')
+            {
+                continue;
+            }
+
+                //L - L'
+            else if (solution[i] == 'L' && solution[i + 1] == 'l' || solution[i] == 'l' && solution[i + 1] == 'L' || solution[i] == 'L' && solution[i - 1] == 'l' or solution[i] == 'l' && solution[i - 1] == 'L')
+            {
+                continue;
+            }
+
+                //F - F'
+            else if(solution[i] == 'F' && solution[i + 1] == 'f' || solution[i] == 'f' && solution[i + 1] == 'F' || solution[i] == 'F' && solution[i - 1] == 'f' or solution[i] == 'f' && solution[i - 1] == 'F')
+            {
+                continue;
+            }
+
+                //B - B'
+            else if (solution[i] == 'B' && solution[i + 1] == 'b' || solution[i] == 'b' && solution[i + 1] == 'B' || solution[i] == 'B' && solution[i - 1] == 'b' or solution[i] == 'b' && solution[i - 1] == 'B')
+            {
+                continue;
+            }
+
+                //D - D'
+            else if (solution[i] == 'D' && solution[i + 1] == 'd' || solution[i] == 'd' && solution[i + 1] == 'D' || solution[i] == 'D' && solution[i - 1] == 'd' || solution[i] == 'd' && solution[i - 1] == 'D')
+            {
+                continue;
+            }
+
+                //U - U'
+            else if (solution[i] == 'U' && solution[i + 1] == 'u' || solution[i] == 'u' && solution[i + 1] == 'U' || solution[i] == 'U' && solution[i - 1] == 'u' || solution[i] == 'u' && solution[i - 1] == 'U')
+            {
+                continue;
+            }
+
+                //R2 - R2
+            else if (solution[i] == 'A' && solution[i + 1] == 'A' || solution[i] == 'A' && solution[i - 1] == 'A')
+            {
+                continue;
+            }
+
+                //L2 - L2
+            else if (solution[i] == 'C' && solution[i + 1] == 'C' || solution[i] == 'C' && solution[i - 1] == 'C')
+            {
+                continue;
+            }
+
+                //F2 - F2
+            else if (solution[i] == 'E' && solution[i + 1] == 'E' || solution[i] == 'E' && solution[i - 1] == 'E')
+            {
+                continue;
+            }
+
+                //B2 - B2
+            else if (solution[i] == 'G' && solution[i + 1] == 'G' || solution[i] == 'G' && solution[i - 1] == 'G')
+            {
+                continue;
+            }
+
+                //U2 - U2
+            else if (solution[i] == 'H' && solution[i + 1] == 'H' || solution[i] == 'H' && solution[i - 1] == 'H')
+            {
+                continue;
+            }
+
+                //D2 - D2
+            else if (solution[i] == 'J' && solution[i + 1] == 'J' || solution[i] == 'J' && solution[i - 1] == 'J')
+            {
+                continue;
+            }
+
+            else
+            {
+                solution_ROBOT = solution_ROBOT + solution[i];
+            }
+
+        }
+
+        else
+        {
+            break;
+        }
+    }
+
+    //motors moves
+    for (int i = 0; i <= solution_ROBOT.length(); i++)
+    {
+        //R - R'
+        if (solution_ROBOT[i] == 'R')
+        {
+            smash = "pass";
+        }
+
+        else if (solution_ROBOT[i] == 'r')
+        {
+            smash = "pass";
+        }
+
+        //L - L'
+        else if (solution_ROBOT[i] == 'L')
+        {
+            smash = "pass";
+        }
+
+        else if (solution_ROBOT[i] == 'l')
+        {
+            smash = "pass";
+        }
+
+        //F - F'
+        else if (solution_ROBOT[i] == 'F')
+        {
+            smash = "pass";
+        }
+
+        else if (solution_ROBOT[i] == 'f')
+        {
+            smash = "pass";
+        }
+
+        //B - B'
+        else if (solution_ROBOT[i] == 'B')
+        {
+            smash = "pass";
+        }
+
+        else if (solution_ROBOT[i] == 'b')
+        {
+            smash = "pass";
+        }
+
+        //D - D'
+        else if (solution_ROBOT[i] == 'D')
+        {
+            smash = "pass";
+        }
+
+        else if (solution_ROBOT[i] == 'd')
+        {
+            smash = "pass";
+        }
+
+        //U - U'
+        else if (solution_ROBOT[i] == 'U')
+        {
+            smash = "pass";
+        }
+
+        else if (solution_ROBOT[i] == 'u')
+        {
+            smash = "pass";
+        }
+
+
+        //R2
+        else if (solution_ROBOT[i] == 'A')
+        {
+            smash = "pass";
+        }
+
+        //L2
+        else if (solution_ROBOT[i] == 'C')
+        {
+            smash = "pass";
+        }
+
+        //F2
+        else if (solution_ROBOT[i] == 'E')
+        {
+            smash = "pass";
+        }
+
+        //B2
+        else if (solution_ROBOT[i] == 'G')
+        {
+            smash = "pass";
+        }
+
+        //U2
+        else if (solution_ROBOT[i] == 'H')
+        {
+            smash = "pass";
+        }
+
+        //D2
+        else if (solution_ROBOT[i] == 'J')
+        {
+            smash = "pass";
+        }
+
+
+
+    }
+
+    cout << solution_ROBOT << endl;
+
+}
